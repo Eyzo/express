@@ -6,7 +6,7 @@ const twig = require('twig');
 
 //Connection avec la bdd
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://Admin:*******@cluster0-nddx4.mongodb.net/test?retryWrites=true&w=majority', { useUnifiedTopology: true ,useNewUrlParser: true });
+mongoose.connect('mongodb+srv://Admin:berserk62155@cluster0-nddx4.mongodb.net/maBase?retryWrites=true&w=majority', { useUnifiedTopology: true ,useNewUrlParser: true });
 const db = mongoose.connection;
 
 db.on('error', () => {
@@ -19,6 +19,7 @@ db.on('open',() => {
 
 //Importation des controllers
 const mainController = require('./controllers/mainController');
+const moviesController = require('./controllers/moviesController');
 
 const app = express();
 
@@ -33,13 +34,15 @@ app.set('twig_option', {
 });
 
 //Dossiers static de l'application
-app.use('/img',express.static(__dirname + '/public/img'));
-app.use('/css', express.static(__dirname + '/public/css'));
-app.use('/js',express.static(__dirname + '/public/js'));
-app.use('/vendor',express.static(__dirname + '/public/vendor'));
+app.use('/img',express.static('./public/img'));
+app.use('/css', express.static('./public/css'));
+app.use('/js',express.static('./public/js'));
+app.use('/vendor',express.static('./public/vendor'));
 
 //Ajout des différents controllers
 app.use('/',mainController);
+app.use('/movies', moviesController);
+
 
 app.listen('3000',() => {
    console.log('sever Listening on port 3000');
