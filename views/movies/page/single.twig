@@ -1,0 +1,25 @@
+{% extends 'movies/index.twig' %}
+
+{% block content %}
+    <div class="container mt-5">
+        <div class="row">
+            <div class="col-lg-6">
+                <img width="100%" src="{{ movie.image }}" alt="{{ movie.title }}">
+            </div>
+            <div class="col-lg-6">
+                <h1 class="text-center">{{ movie.title }}</h1>
+                <p class="text-center">{{ movie.synopsis }}</p>
+                <p class="text-muted">{{ movie.year }}</p>
+                <p class="text-center">{% for i in 1..movie.rate %}<i class="fas fa-star"></i>{% endfor %}</p>
+            </div>
+        </div>
+        <div class="row">
+            <a href="/movies/{{ movie.id }}/edit" class="btn btn-primary w-50">Editer</a>
+            <button id="deleteBtn" data-id="{{ movie.id }}" class="btn btn-danger w-50" onclick="return confirm('êtes vous sur de vouloir faire ça ?')">Supprimer</button>
+        </div>
+    </div>
+{% endblock %}
+
+{% block custom_js %}
+    <script src="/js/movies/index.js"></script>
+{% endblock %}

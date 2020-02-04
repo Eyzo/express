@@ -1,5 +1,4 @@
 const router = require('express').Router();
-const Movie = require('../models/movieModel');
 const faker = require('faker');
 faker.locale = 'fr';
 

@@ -2,7 +2,21 @@
 const express = require('express');
 const bodyParser = require('body-parser');
 const multer = require('multer');
-const twig = require('twig');
+const Twig = require('twig');
+
+Twig.extendFilter('resume', function(value, params) {
+    var strReduce = value.substr(0,150);
+    let lastSpace = strReduce.lastIndexOf(' ');
+    strReduce.substr(0,lastSpace);
+    return `${strReduce}...`;
+});
+
+Twig.extendFilter('slug', function(value,params) {
+    var slug = value.toLowerCase();
+    slug = slug.split(' ');
+    slug = slug.join('-');
+    return slug;
+});
 
 //Connection avec la bdd
 const mongoose = require('mongoose');

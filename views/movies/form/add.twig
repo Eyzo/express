@@ -5,6 +5,31 @@
     <section class="page-section" id="services">
         <div class="container">
             <h2 class="text-center mt-0">Page formulaire d'ajout</h2>
+            <form method="post" action="">
+                <div class="form-group">
+                    <label for="title">Titre du film :</label>
+                    <input type="text" class="form-control" id="title" name="title">
+                </div>
+                <div class="form-group">
+                    <label for="synopsis">Synopsis du film :</label>
+                    <textarea class="form-control" id="synopsis" name="synopsis" required></textarea>
+                </div>
+                <div class="form-group">
+                    <label for="image">Image du film</label>
+                    <input type="text" id="image" name="image" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="year">Année de sortie du film :</label>
+                    <input type="number" id="year" name="year" class="form-group" min="1900" max="2020" required>
+                </div>
+                <div class="form-group">
+                    <label for="rate">Note du film :</label>
+                    <input type="number" min="0" max="5" required class="form-group" id="rate" name="rate">
+                </div>
+                <div class="form-group">
+                    <button type="submit" class="form-control btn btn-primary">valider</button>
+                </div>
+            </form>
         </div>
     </section>
 {% endblock %}
