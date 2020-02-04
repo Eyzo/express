@@ -20,7 +20,7 @@ Twig.extendFilter('slug', function(value,params) {
 
 //Connection avec la bdd
 const mongoose = require('mongoose');
-mongoose.connect('mongodb+srv://Admin:berserk62155@cluster0-nddx4.mongodb.net/maBase?retryWrites=true&w=majority', { useUnifiedTopology: true ,useNewUrlParser: true });
+mongoose.connect('mongodb+srv://****:*****@cluster0-nddx4.mongodb.net/maBase?retryWrites=true&w=majority', { useUnifiedTopology: true ,useNewUrlParser: true });
 const db = mongoose.connection;
 
 db.on('error', () => {
